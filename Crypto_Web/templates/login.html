@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CryptoWeb-Login</title>
+</head>
+<body>
+<div id="card" class="card" style="position: relative; top: 30px; text-align: center;" >
+    <div id="frontBox" class="shadowEffect" style="top:300px;">
+        <div id="frontBoxContent" class="cardText">
+            <h1>Sign in</h1>
+            <p id="tipText">Sign in with your account.</p>
+
+            <p>Email address</p>
+            <br>
+            <form id="signInForm" action="" method="post" style="position:relative; top:-18px;">
+                <input id="forwardType" name="forwardType" value="login" style="display:none">
+                <input class="textField" id="username" name="username" oninput="">
+                <p id="loginEmailEmpty" style="display:none; color:red;">Plase enter your Email address</p>
+                <p>Password</p>
+                <input class="textField" type="password" id="password" name="password" oninput="">
+                <p id="loginPasswordEmpty" style="display:none; color:red;">Plase enter your password</p>
+                <p id="loginPasswordWrong" style="display:none; color:red;">The combination of email address and password you entered does not match.</p>
+            </form>
+
+            <button class="mainButton" onclick=""><span id="btnText"class="mainButtonText">Sign in</span></button>
+
+            <p id="registerText" style="position: relative; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b class="accentColorText">Sign up</b></span></p>
+            <p id="forgotText"style="position: relative; top: 30px; text-align: center; cursor: pointer; display: none;" onclick="forgotPasswordAction()">Forget your password?</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

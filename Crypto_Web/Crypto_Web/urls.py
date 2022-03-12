@@ -10,4 +10,6 @@ urlpatterns = [
     path('hidden/', views.hello),
     path('homepage_hidden/', views.homepage_hidden),
     path('', views.login),
+    path('profile/', views.profile),
+
 ]

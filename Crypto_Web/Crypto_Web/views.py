@@ -15,6 +15,17 @@ def homepage_hidden(request):
 def login(request):
     return render(request, 'login.html')
 
+def login_post(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+    print(username, password)
+    return render(request, 'homepage.html')
+
+
+
+
+
 def profile(request):
     return render(request, 'profile.html')
 

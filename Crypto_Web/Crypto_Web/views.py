@@ -14,6 +14,7 @@ def homepage_hidden(request):
 
 def login(request):
     return render(request, 'login.html')
+
 def profile(request):
     return render(request, 'profile.html')
 

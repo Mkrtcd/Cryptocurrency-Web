@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.views.decorators.csrf import csrf_exempt
 app_name = "Crypto_web"
 
 
@@ -13,17 +13,19 @@ def homepage_hidden(request):
     return render(request, 'homepage.html', context)
 
 def login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get('password')
+        print(username, password)
     return render(request, 'login.html')
 
+@csrf_exempt
 def login_post(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
+    if request.method == "POST":
+        username = request.POST.get("username", "")
         password = request.POST.get('password')
-    print(username, password)
-    return render(request, 'homepage.html')
-
-
-
+        print(username, password)
+    return render(request, 'login.html')
 
 
 def profile(request):

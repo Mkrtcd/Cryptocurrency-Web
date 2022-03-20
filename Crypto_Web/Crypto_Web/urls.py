@@ -9,7 +9,10 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('hidden/', views.hello),
     path('homepage_hidden/', views.homepage_hidden),
-    path('', views.login),
+    # path('', views.login),
     path('profile/', views.profile),
+    path('signup/', views.signup),
+    path('login/', views.login),
+    path('activity/', views.activity),
 
 ]

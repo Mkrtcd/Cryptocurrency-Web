@@ -7,9 +7,7 @@ app_name = "Crypto_web"
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('hidden/', views.hello),
-    path('homepage_hidden/', views.homepage_hidden),
+    #path('hidden/', views.hello),
+    #path('homepage_hidden/', views.homepage_hidden),
     path('', views.login),
-    path('profile/', views.profile),
-
 ]

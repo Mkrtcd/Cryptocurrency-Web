@@ -20,4 +20,6 @@ def signup(request):
     return render(request, 'signup.html')
 def activity(request):
     return render(request, 'activity.html')
+def activity(request):
+    return render(request, 'forgot-password.html')
 

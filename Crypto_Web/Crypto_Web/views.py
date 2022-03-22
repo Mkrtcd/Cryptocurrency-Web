@@ -22,4 +22,6 @@ def activity(request):
     return render(request, 'activity.html')
 def activity(request):
     return render(request, 'forgot-password.html')
+def activity(request):
+    return render(request, 'recover-password.html')
 

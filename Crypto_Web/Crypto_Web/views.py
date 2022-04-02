@@ -22,9 +22,9 @@ def signup(request):
     return render(request, 'signup.html')
 def activity(request):
     return render(request, 'activity.html')
-def activity(request):
+def forgotPassword(request):
     return render(request, 'forgot-password.html')
-def activity(request):
+def recoverPassword(request):
     return render(request, 'recover-password.html')
 
 conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")

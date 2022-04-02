@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import psycopg2
+
 
 app_name = "Crypto_web"
 
@@ -25,3 +27,11 @@ def activity(request):
 def activity(request):
     return render(request, 'recover-password.html')
 
+conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")
+
+cur = conn.cursor()
+cur.execute("select * from users")
+rows = cur.fetchall()
+print(rows)
+conn.commit()
+conn.close()

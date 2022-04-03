@@ -20,7 +20,8 @@ def login(request):
     
     
     print()
-    conn = psycopg2.connect(database="user_info", user="postgres", password="wale", host="localhost")
+
+    conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")
     cur = conn.cursor()
     cur.execute("select * from users")
     rows = cur.fetchall()

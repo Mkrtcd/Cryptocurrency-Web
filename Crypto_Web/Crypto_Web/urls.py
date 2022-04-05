@@ -16,4 +16,6 @@ urlpatterns = [
     path('activity/', views.activity),
     path('forgot-password/', views.forgotPassword),
     path('recover-password/', views.recoverPassword),
+    path('correct-password/', views.correctPassword),
+    path('wrong-password/', views.wrongPassword),
 ]

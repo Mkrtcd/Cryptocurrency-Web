@@ -53,3 +53,7 @@ def forgotPassword(request):
     return render(request, 'forgot-password.html')
 def recoverPassword(request):
     return render(request, 'recover-password.html')
+def correctPassword(request):
+    return render(request, 'correct-password.html')
+def wrongPassword(request):
+    return render(request, 'wrong-password.html')

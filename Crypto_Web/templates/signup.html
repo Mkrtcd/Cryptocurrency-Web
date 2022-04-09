@@ -130,7 +130,8 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Sign up to get your cryptocurrency wallet</p>
-                <form action="../../index.html" method="post">
+                <form action="" method="post">
+                    {%csrf_token%}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="User name" name="username">
                         <div class="input-group-append">

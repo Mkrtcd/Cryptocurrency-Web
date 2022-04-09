@@ -1,52 +1,59 @@
+import email
 from django.http import HttpResponse
 from django.shortcuts import render
 import psycopg2
 
 app_name = "Crypto_web"
 
-
-#def hello(request):
-#    return HttpResponse("Hello world! This is where everything starts!!!\n M.Lai 2022/03/05")
-
-#def homepage_hidden(request):
-#    context = {}
-#    context['Homepage'] = 'Hello World!' 
-#    return render(request, 'homepage.html', context)
-
-
 def login(request):
     print("================================")
     if request.method == "POST":
-        print('a')
-        username = request.POST.get("email")
+        email = request.POST.get("email")
         password = request.POST.get('password')
-        print(username, password)
-    return render(request, 'login.html')
+        print(email, password)
+    try:
+        conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")
+        cur = conn.cursor()
+        postgres_select_query = ("SELECT * FROM users WHERE email = %s")
+        cur.execute(postgres_select_query, (email,))
+        rows = cur.fetchall()
+        print(rows[0][0], rows[0][2])
+        email_in_db, pw_in_db = rows[0][0], rows[0][2]
+        conn.commit()
+        conn.close()
+        print(email_in_db, pw_in_db, type(email_in_db), type(pw_in_db))
+        print(email, password, type(email), type(password))
+        if email_in_db == email and pw_in_db == password:
+            return render(request, 'correct-password.html')
+        else:
+            return render(request, 'wrong-password.html')
+    except:
+        return render(request, 'login.html')
 
-
-#def login(request):
-    
-#    email = request.POST.get('email')
-#    password = request.POST.get('password')
-#    print(email, password)
-#
-#    conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")
-#    cur = conn.cursor()
-#    cur.execute("select * from users")
-#    rows = cur.fetchall()
-#    print(rows)
-#    conn.commit()
-#    conn.close()
-#    return render(request, 'login.html')
-
-
+def signup(request):
+    print("================================")
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        print(username, email, password)
+    try:
+        conn = psycopg2.connect(database="user_info", user="postgres", password="19960926", host="localhost")
+        cur = conn.cursor()
+        postgres_insert_query = ("INSERT INTO users (username, email, pw) VALUES (%s,%s,%s)")
+        record_to_insert = (username, email, password)
+        cur.execute(postgres_insert_query, record_to_insert)
+        conn.commit()
+        conn.close()
+    except:
+        return render(request, 'signup.html')
+    return render(request, 'signup.html')
 
 
 
 def profile(request):
     return render(request, 'profile.html')
-def signup(request):
-    return render(request, 'signup.html')
+
 def activity(request):
     return render(request, 'activity.html')
 def forgotPassword(request):

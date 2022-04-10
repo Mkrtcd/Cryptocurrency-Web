@@ -57,13 +57,13 @@ def profile(request):
 def activity(request):
     return render(request, 'activity.html')
 def forgotPassword(request):
-    return render(request, 'forgot-password.html')
+    return render(request, 'forgot_password.html')
 def recoverPassword(request):
-    return render(request, 'recover-password.html')
+    return render(request, 'recover_password.html')
 def correctPassword(request):
-    return render(request, 'correct-password.html')
+    return render(request, 'correct_password.html')
 def wrongPassword(request):
-    return render(request, 'wrong-password.html')
+    return render(request, 'wrong_password.html')
 def regSuccess(request):
     return render(request, 'reg_success.html')
 def regNotSuccess(request):

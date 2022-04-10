@@ -24,7 +24,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="" class="nav-link">Home</a>
+            <a class="nav-link">Home</a>
         </li>
     </ul>
 
@@ -130,8 +130,8 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Sign up to get your cryptocurrency wallet</p>
-                <form action="" method="post">
-                    {%csrf_token%}
+                <form name="form1" action="" method="post" onsubmit="myCheck()">
+                    {% csrf_token %}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="User name" name="username">
                         <div class="input-group-append">
@@ -149,24 +149,27 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="pw">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Retype password" name="password2">
+                        <input type="password" class="form-control" placeholder="Retype password" name="password2"
+                               id="pw2" onkeyup="checkpassword()">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    <span id="alert"></span>
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                            <button id="submit" type="submit" class="btn btn-primary btn-block">Sign up</button>
                         </div>
                         <!-- /.col -->
                         <div class="col-8">
@@ -193,5 +196,31 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<script type="text/javascript">
+    function checkpassword() {
+        var password = document.getElementById("pw").value;
+        var password2 = document.getElementById("pw2").value;
+        if (password == password2) {
+            document.getElementById("alert").innerHTML = "<br><font color='green'>Valid passwords</font>";
+            document.getElementById("submit").disabled = false;
+        } else {
+            document.getElementById("alert").innerHTML = "<br><font color='red'>Two different passwords</font>";
+            document.getElementById("submit").disabled = true;
+        }
+
+    }
+
+    function myCheck() {
+        for (var i = 0; i < document.form1.elements.length - 1; i++) {
+            if (document.form1.elements[i].value == "") {
+                alert("All fields must be completed");
+                document.form1.elements[i].focus();
+                return false;
+            }
+        }
+        return true;
+
+    }
+</script>
 </body>
 </html>

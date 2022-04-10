@@ -133,7 +133,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to your wallet</p>
 
-                <form action="" method="POST">
+                <form name="form1" action="" method="POST" onSubmit="return myCheck()">
                     {%csrf_token%}
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email" >
@@ -186,6 +186,24 @@
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+
+<script type="text/javascript">
+    function myCheck()
+    {
+        for(var i=0;i<document.form1.elements.length-1;i++)
+        {
+            if(document.form1.elements[i].value=="")
+            {
+                alert("All fields must be completed");
+                document.form1.elements[i].focus();
+                return false;
+            }
+        }
+        return true;
+
+    }
+</script>
+
 </body>
 </html>
 

@@ -64,3 +64,8 @@ def correctPassword(request):
     return render(request, 'correct-password.html')
 def wrongPassword(request):
     return render(request, 'wrong-password.html')
+def regSuccess(request):
+    return render(request, 'reg_success.html')
+def regNotSuccess(request):
+    return render(request, 'reg_notsuccess.html')
+

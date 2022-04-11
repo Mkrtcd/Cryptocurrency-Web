@@ -68,4 +68,6 @@ def regSuccess(request):
     return render(request, 'reg_success.html')
 def regNotSuccess(request):
     return render(request, 'reg_notsuccess.html')
+def transfer(request):
+    return render(request, 'transfer.html')
 

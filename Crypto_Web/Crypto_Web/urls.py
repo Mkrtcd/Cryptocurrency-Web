@@ -16,4 +16,5 @@ urlpatterns = [
     path('wrong_password/', views.wrongPassword),
     path('reg_success/', views.regSuccess),
     path('reg_notsuccess/', views.regNotSuccess),
+    path('transfer/', views.transfer),
 ]

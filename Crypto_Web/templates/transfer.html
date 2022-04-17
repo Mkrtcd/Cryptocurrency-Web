@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
 </head>
-<body class="hold-transition sidebar-collapse layout-top-nav' %}">
+<body class="hold-transition sidebar-collapse layout-top-nav">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -31,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link">Transfer</a>
+            <a href="../transfer/" class="nav-link">Transfer</a>
           </li>
           <li class="nav-item">
             <a href="../trade/" class="nav-link">Trade</a>
@@ -190,13 +190,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Transfer to</p>
                         <div class="input-group input-group-lg mb-3">
                           <div class="input-group-prepend">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                              Transfer method
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li class="dropdown-item"><a href="#">ETH address</a></li>
-                              <li class="dropdown-item"><a href="#">Email address</a></li>
-                            </ul>
+                            <select class="btn btn-warning dropdown-toggle" style="width: 100%;">
+                                <option selected>ETH address</option>
+                                <option>Email address</option>
+                            </select>
                           </div>
                           <!-- /btn-group -->
                           <input type="text" class="form-control" placeholder="Receiving account">
@@ -205,7 +202,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>You send</p>
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <button type="button" class="btn btn-danger">ETH</button>
+                            <select class="btn btn-danger">
+                              <option selected>ETH</option>
+                            </select>
                           </div>
                           <!-- /btn-group -->
                           <input type="text" class="form-control" placeholder="Transfer amount">
@@ -231,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <p> <strong>Receive by</strong> </p>
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <button type="button" class="btn btn-danger">ETH address</button>
+                              <button type="button" class="btn btn-block bg-gradient-warning">ETH address</button>
                             </div>
                             <!-- /btn-group -->
                             <input type="text" class="form-control" placeholder="ETH address">

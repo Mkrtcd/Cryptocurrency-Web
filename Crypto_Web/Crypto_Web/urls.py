@@ -18,4 +18,5 @@ urlpatterns = [
     path('reg_notsuccess/', views.regNotSuccess),
     path('transfer/', views.transfer),
     path('receive/', views.receive),
+    path('trade/', views.trade),
 ]

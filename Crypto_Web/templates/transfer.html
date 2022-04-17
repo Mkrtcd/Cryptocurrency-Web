@@ -37,6 +37,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link">Transfer</a>
           </li>
           <li class="nav-item">
+            <a href="../trade/" class="nav-link">Trade</a>
+          </li>
+          <li class="nav-item">
             <a href="../activity/" class="nav-link">Activity</a>
           </li>
           <li class="nav-item">
@@ -161,56 +164,91 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Transfer Details</h3>
+          <div class="col-12 col-sm-6">
+            <div class="card card-primary card-tabs">
+              <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Send</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Receive</a>
+                  </li>
+                  </li>
+                </ul>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="itemSelect">Select Item</label>
-                    <select class="custom-select form-control-border" id="itemSelect">
-                      <option>Ethereum</option>
-                    </select>
-                  </div>
-                  <br>
-                  <p>Transfer to</p>
-                  <div class="input-group input-group-lg mb-3">
-                    <div class="input-group-prepend">
-                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                        Transfer method
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a href="#">ETH address</a></li>
-                        <li class="dropdown-item"><a href="#">Google Account</a></li>
-                      </ul>
-                    </div>
-                    <!-- /btn-group -->
-                    <input type="text" class="form-control" placeholder="Receiving account">
-                  </div>
-                  <br>
-                  <p>You send</p>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button type="button" class="btn btn-danger">ETH</button>
-                    </div>
-                    <!-- /btn-group -->
-                    <input type="text" class="form-control" placeholder="Transfer amount">
-                  </div>
-                </div>
-                <!-- /.card-body -->
+              <div class="card-body">
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+                  <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                     <!-- form start -->
+                    <form>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="itemSelect">Select Item</label>
+                          <select class="custom-select form-control-border" id="itemSelect">
+                            <option>Ethereum</option>
+                          </select>
+                        </div>
+                        <br>
+                        <p>Transfer to</p>
+                        <div class="input-group input-group-lg mb-3">
+                          <div class="input-group-prepend">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                              Transfer method
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item"><a href="#">ETH address</a></li>
+                              <li class="dropdown-item"><a href="#">Email address</a></li>
+                            </ul>
+                          </div>
+                          <!-- /btn-group -->
+                          <input type="text" class="form-control" placeholder="Receiving account">
+                        </div>
+                        <br>
+                        <p>You send</p>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <button type="button" class="btn btn-danger">ETH</button>
+                          </div>
+                          <!-- /btn-group -->
+                          <input type="text" class="form-control" placeholder="Transfer amount">
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Transfer</button>
+                      <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                    <form>
+                      <div class="card-body">
+                          <div class="form-group">
+                              <label for="itemSelect">Asset</label>
+                              <select class="custom-select form-control-border" id="itemSelect">
+                                  <option>Ethereum</option>
+                              </select>
+                          </div>
+                          <br>
+                          <p> <strong>Receive by</strong> </p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <button type="button" class="btn btn-danger">ETH address</button>
+                            </div>
+                            <!-- /btn-group -->
+                            <input type="text" class="form-control" placeholder="ETH address">
+                          </div>
+                          Only sent Ethereum to this address!
+                          <br>
+                      </div>
+                      <!-- /.card-body -->
+                    </form>
+                  </div>
                 </div>
-              </form>
+              </div>
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-
           </div>
           <!-- /.col-md-6 -->
           <div class="col-lg-6">

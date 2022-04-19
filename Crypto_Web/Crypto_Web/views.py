@@ -78,3 +78,5 @@ def receive(request):
     return render(request, 'receive.html')
 def trade(request):
     return render(request, 'trade.html')
+def email_not_exist(request):
+    return render(request, 'email_not_exist.html')

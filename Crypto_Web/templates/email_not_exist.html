@@ -4,11 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registration success</title>
+    <title>Email not exist</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
     <!-- icheck bootstrap -->
@@ -19,25 +18,25 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a><b>Sign up Successfully!!!</b></a>
+        <a><b>The email you entered is not registered</b></a>
         <br>
-        <a style="font-size: 20px;">We will automatically navigate you to the user home page after three seconds...</a>
-
+        <a style="font-size: 20px;">We will automatically navigate you to the registration page after three seconds...</a>
     </div>
 
 
-    <!-- jQuery -->
-    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- AdminLTE App -->
-    <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
     <script type="text/javascript">
         onload=function (){
             setTimeout(go,3000);
         }
         function go(){
-            location.href="../login/";
+            location.href="../signup/";
         }
     </script>
 </body>

@@ -8,3 +8,4 @@ rows = cur.fetchall()
 print(rows)
 conn.commit()
 conn.close()
+# laige

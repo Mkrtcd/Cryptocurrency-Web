@@ -56,7 +56,11 @@ def forgotPassword(request):
     print("================================")
     if request.method == "POST":
         email = request.POST.get("email")
-        print(email)
+        pw_1 = request.POST.get("password")
+        pw_2 = request.POST.get("new_password")
+        print(email, pw_1, pw_2)
+        if pw_1 != pw_2:
+            return render(request, 'forgot_password.html')
     try:
         conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
                         password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
@@ -70,34 +74,18 @@ def forgotPassword(request):
         conn.commit()
         conn.close()
         if email == email_in_db:
-            return render(request, 'recover_password.html')
+            conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
+                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+            cur = conn.cursor()
+            postgres_select_query = ("UPDATE users SET pw = %s WHERE email = %s")
+            cur.execute(postgres_select_query, (pw_1, email))
+            conn.commit()
+            conn.close()
+            return render(request, 'login.html')
     except:
         return render(request, 'forgot_password.html')
     else:
         return render(request, 'forgot_password.html')
-
-def recoverPassword(request):
-    print("================================")
-    if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        print(username, email, password)
-        conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
-                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
-        postgres_insert_query = ("INSERT INTO users (username, email, pw) VALUES (%s,%s,%s)")
-        record_to_insert = (username, email, password)
-        try:
-            cur = conn.cursor()
-            cur.execute(postgres_insert_query, record_to_insert)
-            conn.commit()
-            conn.close()
-            return render(request, 'reg_success.html')
-        except:
-            return render(request, 'reg_notsuccess.html')
-    else:
-        return render(request, 'recover_password.html')
-
 
 
 

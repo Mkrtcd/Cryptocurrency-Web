@@ -122,8 +122,8 @@ def regNotSuccess(request):
     return render(request, 'reg_notsuccess.html')
 def transfer(request):
     return render(request, 'transfer.html')
-def receive(request):
-    return render(request, 'receive.html')
+#def receive(request):
+#    return render(request, 'receive.html')
 def trade(request):
     return render(request, 'trade.html')
 def email_not_exist(request):

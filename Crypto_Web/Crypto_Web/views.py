@@ -25,6 +25,8 @@ def login(request):
         conn.commit()
         conn.close()
         if email_in_db == email and pw_in_db == password:
+            request.session['is_login'] = True
+            request.session['user_id'] = email
             return render(request, 'correct_password.html')
 
             # request.session['email'] = email

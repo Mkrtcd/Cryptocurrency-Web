@@ -131,3 +131,14 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Crypto_app',
+        'USER': 'hzha3299',
+        'PASSWORD': 'Cs981020',
+        'HOST': 'cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}

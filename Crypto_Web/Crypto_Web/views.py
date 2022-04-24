@@ -12,8 +12,9 @@ def login(request):
         password = request.POST.get('password')
         print(email, password)
     try:
-        conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
-                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+        conn = psycopg2.connect(database="Crypto_app", user="hzha3299",
+                                password="Cs981020",
+                                host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
         cur = conn.cursor()
         postgres_select_query = ("SELECT * FROM users WHERE email = %s")
         cur.execute(postgres_select_query, (email,))
@@ -25,6 +26,9 @@ def login(request):
         conn.close()
         if email_in_db == email and pw_in_db == password:
             return render(request, 'correct_password.html')
+
+            # request.session['email'] = email
+
         elif email_in_db == email and pw_in_db != password:
             return render(request, 'wrong_password.html')
     except:
@@ -37,8 +41,9 @@ def signup(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
         print(username, email, password)
-        conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
-                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+        conn = psycopg2.connect(database="Crypto_app", user="hzha3299",
+                                password="Cs981020",
+                                host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
         postgres_insert_query = ("INSERT INTO users (username, email, pw) VALUES (%s,%s,%s)")
         record_to_insert = (username, email, password)
         try:
@@ -62,8 +67,9 @@ def forgotPassword(request):
         if pw_1 != pw_2:
             return render(request, 'forgot_password.html')
     try:
-        conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
-                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+        conn = psycopg2.connect(database="Crypto_app", user="hzha3299",
+                                password="Cs981020",
+                                host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
         cur = conn.cursor()
         postgres_select_query = ("SELECT * FROM users WHERE email = %s")
         cur.execute(postgres_select_query, (email,))
@@ -74,8 +80,9 @@ def forgotPassword(request):
         conn.commit()
         conn.close()
         if email == email_in_db:
-            conn = psycopg2.connect(database="Crypto_app", user="hzha3299", 
-                        password="Cs981020", host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+            conn = psycopg2.connect(database="Crypto_app", user="hzha3299",
+                                    password="Cs981020",
+                                    host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
             cur = conn.cursor()
             postgres_select_query = ("UPDATE users SET pw = %s WHERE email = %s")
             cur.execute(postgres_select_query, (pw_1, email))
@@ -88,43 +95,49 @@ def forgotPassword(request):
         return render(request, 'forgot_password.html')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# def index(request):
+#     # 获取session中username
+#     email = request.session.get('email', '')
+#     if not email:
+#
+#     print("没有登录啦")
+#     return render(request, 'activity.html', {
+#         'email': email})
 
 
 def profile(request):
     return render(request, 'profile.html')
+
+
 def activity(request):
     return render(request, 'activity.html')
+
+
 def correctPassword(request):
     return render(request, 'correct_password.html')
+
+
 def wrongPassword(request):
     return render(request, 'wrong_password.html')
+
+
 def regSuccess(request):
     return render(request, 'reg_success.html')
+
+
 def regNotSuccess(request):
     return render(request, 'reg_notsuccess.html')
+
+
 def transfer(request):
     return render(request, 'transfer.html')
-#def receive(request):
+
+
+# def receive(request):
 #    return render(request, 'receive.html')
 def trade(request):
     return render(request, 'trade.html')
+
+
 def email_not_exist(request):
     return render(request, 'email_not_exist.html')

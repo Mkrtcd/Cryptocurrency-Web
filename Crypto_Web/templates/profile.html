@@ -1,15 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% if request.session.userid %}
-<h1>Please login first</h1>
-{% else %}
-<h1>{{ request.session.user_id }}!  欢迎回来！</h1>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Profile</title>
+    {% if request.session.user_id %}
+        <h4> Welcome {{ request.session.user_id }} </h4>
     
     
     <!-- Google Font: Source Sans Pro -->
@@ -427,5 +424,7 @@
 <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
 
 </body>
+{% else %}
+	<h3 style='font-family:楷体;'>请重新登陆</h3>
 {% endif %}
 </html>

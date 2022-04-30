@@ -144,3 +144,6 @@ def trade(request):
 
 def email_not_exist(request):
     return render(request, 'email_not_exist.html')
+
+def homepage(request):
+    return render(request, 'homepage.html')

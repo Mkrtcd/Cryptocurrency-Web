@@ -20,4 +20,5 @@ urlpatterns = [
     #path('receive/', views.receive),
     path('trade/', views.trade),
     path('email_not_exist/', views.email_not_exist),
+    path('homepage/', views.homepage),
 ]

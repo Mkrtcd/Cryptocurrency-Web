@@ -12,9 +12,9 @@ def login(request):
         password = request.POST.get('password')
         print(email, password)
     try:
-        conn = psycopg2.connect(database="Crypto_app", user="hzha3299",
-                                password="Cs981020",
-                                host="cryptodatabase.ccftjy90se8y.ap-southeast-2.rds.amazonaws.com")
+        conn = psycopg2.connect(database="user_info", user="postgres",
+                                password="19960926",
+                                host="localhost")
         cur = conn.cursor()
         postgres_select_query = ("SELECT * FROM users WHERE email = %s")
         cur.execute(postgres_select_query, (email,))
